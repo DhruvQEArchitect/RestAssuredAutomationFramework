@@ -6,7 +6,7 @@ This repository serves following purposes:
 * We are using maven as a build tool here to handle dependencies
 * We will be using java as the programming language for this specific framework.
 * In this repository i will be using TestNG testing frameworks.
-* The codebase will be continously revised as per the latest enhancements and if you have any queries, suggestions please feel free to reach out to me https://www.linkedin.com/in/dhruv6/ here.
+* The codebase will be continuously revised as per the latest enhancements and if you have any queries, suggestions please feel free to reach out to me https://www.linkedin.com/in/dhruv6/ here.
 
 
 ## Installation

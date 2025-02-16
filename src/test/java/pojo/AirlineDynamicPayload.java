@@ -1,7 +1,5 @@
 package pojo;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utils.FakeDataBuilder;
 
 public class AirlineDynamicPayload {
