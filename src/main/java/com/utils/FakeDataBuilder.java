@@ -1,0 +1,42 @@
+package com.utils;
+
+
+import net.datafaker.Faker;
+import org.apache.commons.lang3.RandomStringUtils;
+
+public class FakeDataBuilder {
+
+    static Faker faker = new Faker();
+
+    public static String getRandomID() {
+        return faker.number().digits(30);
+    }
+
+    public static String getRandomName() {
+        return faker.name().name();
+    }
+
+    public static String getRandomCountry() {
+        return faker.country().name();
+    }
+
+    public static String getRandomLogo() {
+        return RandomStringUtils.randomAlphabetic(30);
+    }
+
+    public static String getRandomHeadquarter() {
+        return faker.country().capital();
+    }
+
+    public static String getRandomSlogan() {
+        return RandomStringUtils.randomAlphabetic(30);
+    }
+
+    public static Object getRandomYear() {
+        return faker.number().numberBetween(1800, 2200);
+    }
+
+    public static String getRandomWebsite() {
+        return "https://www." + RandomStringUtils.randomAlphabetic(15) + ".com";
+    }
+}
