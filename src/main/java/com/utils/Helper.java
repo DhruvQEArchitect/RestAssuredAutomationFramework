@@ -16,7 +16,7 @@ public class Helper {
         return instance;
     }
 
-    static String getProperty(String key) {
+    public static String getProperty(String key) {
         properties = new Properties();
         try {
             properties.load(new FileInputStream(path + "/src/test/resources/Test.properties"));
