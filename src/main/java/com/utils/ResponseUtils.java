@@ -7,17 +7,18 @@ import io.restassured.specification.RequestSpecification;
 
 public class ResponseUtils {
 
-    public static Response getResponse() {
+    private static RequestSpecification getRequestSpecification() {
         RestAssured.baseURI = Helper.getEndpoint();
         RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         requestSpecification.headers("content-type", "application/json");
-        return requestSpecification.request(Method.GET);
+        return requestSpecification;
+    }
+
+    public static Response getResponse() {
+        return getRequestSpecification().request(Method.GET);
     }
 
     public static Response postResponse(Object body) {
-        RestAssured.baseURI = Helper.getEndpoint();
-        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
-        requestSpecification.headers("content-type", "application/json");
-        return requestSpecification.body(body).request(Method.POST);
+        return getRequestSpecification().body(body).request(Method.GET);
     }
 }
