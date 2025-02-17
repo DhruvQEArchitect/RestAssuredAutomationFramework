@@ -9,7 +9,6 @@ import com.utils.Helper;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 
 public class Reporting {
 
@@ -27,10 +26,10 @@ public class Reporting {
     }
 
     public static String generateReportName() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("YYYY_MM_DD_HH_MM_SS");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
         LocalDateTime localDateTime = LocalDateTime.now();
         return System.getProperty("user.dir") + "/Reports/" +
-                Helper.getProperty("reportName") + dateTimeFormatter.format(localDateTime) + ".html";
+                Helper.getProperty("reportName") + "_" + dateTimeFormatter.format(localDateTime) + ".html";
     }
 
     public static void logPassStatus(String msg) {
