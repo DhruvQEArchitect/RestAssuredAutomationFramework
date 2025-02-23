@@ -6,6 +6,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.util.Arrays;
+
 public class ReportingListeners implements ITestListener {
 
     private static ExtentReports extentReports;
@@ -25,5 +27,17 @@ public class ReportingListeners implements ITestListener {
     @Override
     public void onFinish(ITestContext context) {
         extentReports.flush();
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        Reporting.logFailStatus(result.getThrowable().getMessage());
+        String stackTrace = Arrays.toString(result.getThrowable().getStackTrace());
+        stackTrace = stackTrace.replaceAll(",", "<br>");
+        String stackTraceDetails = "<details>\n" +
+                "<summary>Expand for detailed error trace</summary>\n" +
+                "" + stackTrace + "\n" +
+                "</details>";
+        Reporting.logStackTraceStatus(stackTraceDetails);
     }
 }

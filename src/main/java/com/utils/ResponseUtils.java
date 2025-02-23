@@ -20,13 +20,15 @@ public class ResponseUtils {
     private static void responseLogger(Response response) {
         Reporting.logInfo("Response code is: " + response.getStatusCode());
         Reporting.logInfo("Response headers are: " + response.headers().asList().toString());
-        Reporting.logInfo("Response of the request is: " + response.prettyPrint());
+        Reporting.logInfo("Response of the request is: ");
+        Reporting.logJsonData(response.asPrettyString());
     }
 
     private static void requestInputParams(RequestSpecification requestSpecification) {
         QueryableRequestSpecification queryableRequestSpecification = SpecificationQuerier.query(requestSpecification);
         Reporting.logInfo("Request base uri: " + queryableRequestSpecification.getBaseUri());
-        Reporting.logInfo("Request body is: " + queryableRequestSpecification.getBody());
+        Reporting.logInfo("Body of the request is: ");
+        Reporting.logJsonData(queryableRequestSpecification.getBody());
         Reporting.logInfo("Request method is: " + queryableRequestSpecification.getMethod());
     }
 
