@@ -7,12 +7,17 @@ import io.restassured.response.Response;
 import io.restassured.specification.QueryableRequestSpecification;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.SpecificationQuerier;
+import org.apache.commons.lang3.StringUtils;
 
 public class ResponseUtils {
 
+    static Response response;
+    static QueryableRequestSpecification queryableRequestSpecification;
+    static RequestSpecification requestSpecification;
+
     private static RequestSpecification getRequestSpecification() {
         RestAssured.baseURI = Helper.getEndpoint();
-        RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation();
+        requestSpecification = RestAssured.given().relaxedHTTPSValidation();
         requestSpecification.headers("content-type", "application/json");
         return requestSpecification;
     }
@@ -25,24 +30,29 @@ public class ResponseUtils {
     }
 
     private static void requestInputParams(RequestSpecification requestSpecification) {
-        QueryableRequestSpecification queryableRequestSpecification = SpecificationQuerier.query(requestSpecification);
+        queryableRequestSpecification = SpecificationQuerier.query(requestSpecification);
         Reporting.logInfo("Request base uri: " + queryableRequestSpecification.getBaseUri());
         Reporting.logInfo("Body of the request is: ");
         Reporting.logJsonData(queryableRequestSpecification.getBody());
         Reporting.logInfo("Request method is: " + queryableRequestSpecification.getMethod());
     }
 
-    public static Response getResponse() {
-        RequestSpecification requestSpecification = getRequestSpecification();
-        Response response = getRequestSpecification().get();
+    public static Response getResponse(String path) {
+        queryableRequestSpecification = SpecificationQuerier.query(getRequestSpecification());
+        requestSpecification = getRequestSpecification();
+        if (StringUtils.isBlank(path)) {
+            response = requestSpecification.get(queryableRequestSpecification.getBaseUri());
+        } else {
+            response = requestSpecification.get(queryableRequestSpecification.getBaseUri()).path(path);
+        }
         requestInputParams(requestSpecification);
         responseLogger(response);
         return response;
     }
 
     public static Response postResponse(Object body) {
-        RequestSpecification requestSpecification = getRequestSpecification();
-        Response response = getRequestSpecification().body(body).post();
+        requestSpecification = getRequestSpecification();
+        Response response = requestSpecification.body(body).post();
         requestInputParams(requestSpecification);
         responseLogger(response);
         return response;
