@@ -38,7 +38,7 @@ public class ResponseUtils {
     }
 
     public static Response getResponse(String path) {
-        queryableRequestSpecification = SpecificationQuerier.query(getRequestSpecification());
+
         requestSpecification = getRequestSpecification();
         if (StringUtils.isBlank(path)) {
             response = requestSpecification.get(queryableRequestSpecification.getBaseUri());
@@ -51,8 +51,9 @@ public class ResponseUtils {
     }
 
     public static Response postResponse(Object body) {
+        queryableRequestSpecification = SpecificationQuerier.query(getRequestSpecification());
         requestSpecification = getRequestSpecification();
-        Response response = requestSpecification.body(body).post();
+        Response response = requestSpecification.body(body).post(queryableRequestSpecification.getBaseUri());
         requestInputParams(requestSpecification);
         responseLogger(response);
         return response;
