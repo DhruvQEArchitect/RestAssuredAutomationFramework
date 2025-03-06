@@ -3,6 +3,7 @@ package com.utils;
 import com.reporting.Reporting;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
+import io.restassured.internal.RequestSpecificationImpl;
 import io.restassured.response.Response;
 import io.restassured.specification.QueryableRequestSpecification;
 import io.restassured.specification.RequestSpecification;
@@ -41,9 +42,9 @@ public class ResponseUtils {
 
         requestSpecification = getRequestSpecification();
         if (StringUtils.isBlank(path)) {
-            response = requestSpecification.get(queryableRequestSpecification.getBaseUri());
+            response = requestSpecification.get(((RequestSpecificationImpl) requestSpecification).getBaseUri());
         } else {
-            response = requestSpecification.get(queryableRequestSpecification.getBaseUri()).path(path);
+            response = requestSpecification.get(((RequestSpecificationImpl) requestSpecification).getBaseUri()).path(path);
         }
         requestInputParams(requestSpecification);
         responseLogger(response);
@@ -53,7 +54,7 @@ public class ResponseUtils {
     public static Response postResponse(Object body) {
         queryableRequestSpecification = SpecificationQuerier.query(getRequestSpecification());
         requestSpecification = getRequestSpecification();
-        Response response = requestSpecification.body(body).post(queryableRequestSpecification.getBaseUri());
+        Response response = requestSpecification.body(body).post(((RequestSpecificationImpl) requestSpecification).getBaseUri());
         requestInputParams(requestSpecification);
         responseLogger(response);
         return response;
