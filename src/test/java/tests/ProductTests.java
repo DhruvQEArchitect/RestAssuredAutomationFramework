@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 import pojo.DynamicPayloads;
 
 @Listeners(ReportingListeners.class)
-public class AirlineTests {
+public class ProductTests {
 
     @Test
-    public void CreateAirline() {
-        ResponseUtils.postResponse(DynamicPayloads.getDynamicPayload()).prettyPeek();
+    public void AddProduct() {
+        ResponseUtils.postResponse(DynamicPayloads.getProductPayload()).prettyPeek();
     }
 }

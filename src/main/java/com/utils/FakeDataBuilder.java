@@ -39,4 +39,16 @@ public class FakeDataBuilder {
     public static String getRandomWebsite() {
         return "https://www." + RandomStringUtils.randomAlphabetic(15) + ".com";
     }
+
+    public static String getRandomTitle() {
+        return RandomStringUtils.randomAlphabetic(15);
+    }
+
+    public static int getRandomPrice() {
+        return faker.number().randomDigitNotZero();
+    }
+
+    public static String getRandomDescription() {
+        return RandomStringUtils.randomAlphabetic(30);
+    }
 }
