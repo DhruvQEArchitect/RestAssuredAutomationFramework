@@ -18,6 +18,8 @@ public class ProductTests {
         Response response = ResponseUtils.postResponse(DynamicPayloads.getProductPayload()).prettyPeek();
         Assert.assertEquals(response.statusCode(), 200);
         Logging.logInfo("Response code verified successfully as {},", response.statusCode());
-//        Assert.assertEquals(Mapper.getProductResponsePayload(response), DynamicPayloads.getProductPayload());
+        Assert.assertEquals(Mapper.getProductResponsePayload(response), DynamicPayloads.getProductPayload());
+        Logging.logInfo("Response verified successfully as {},", response.prettyPrint());
     }
+
 }

@@ -19,8 +19,16 @@ public class Logging {
         logger.error(message);
     }
 
+    public static void logError(String message, Object object) {
+        logger.error(message, object);
+    }
+
     public static void logWarning(String message) {
         logger.warn(message);
+    }
+
+    public static void logWarning(String message, Object object) {
+        logger.warn(message, object);
     }
 
 }
