@@ -8,6 +8,10 @@ This repository serves following purposes:
 * In this repository i will be using TestNG testing frameworks.
 * The codebase will be continuously revised as per the latest enhancements and if you have any queries, suggestions please feel free to reach out to me https://www.linkedin.com/in/dhruv6/ here.
 
+## Reporting
+
+Extent report is generated at the end of execution along with a log file which are then zipped together, to serve as an attachment.
+
 
 ## Installation
 
