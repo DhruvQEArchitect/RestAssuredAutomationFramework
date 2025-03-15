@@ -14,7 +14,7 @@ This repository serves following purposes:
 This repository is cloneable. Please clone this repository and you can right away start using it.
 
 
-## Authors
+## Authors👨🏽‍🎓
 
 - [@Dhruv](https://www.linkedin.com/in/dhruv6/)
 - [@If you like my work](https://buymeacoffee.com/dhruvqearchitect)
@@ -33,6 +33,12 @@ With consistency and practice over the time, things will get easier.
 #### Any suggestions or improvements or if anyone want to reach out?
 
 https://www.linkedin.com/in/dhruv6/
+
+## Roadmap🛣️
+
+- Cucumber 🥒 Integration
+- Javers Integration for further assertions
+- Add more test cases
 
 
 
