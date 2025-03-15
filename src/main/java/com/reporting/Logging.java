@@ -3,6 +3,9 @@ package com.reporting;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * This class initializes logger for logging purposes and could be utilized by simply calling with class name
+ */
 public class Logging {
 
     static final Logger logger = LogManager.getLogger(Logging.class.getName());

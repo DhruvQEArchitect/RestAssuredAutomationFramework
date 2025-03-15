@@ -11,6 +11,10 @@ import com.utils.Helper;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * This class implements logic to generate extent report
+ * various methods are implemented, based upon usage any of them could be utilised
+ */
 public class Reporting {
 
     public static ExtentReports extentReports;
