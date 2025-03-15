@@ -2,6 +2,10 @@ package pojo;
 
 import com.utils.FakeDataBuilder;
 
+/**
+ * DynamicPayloads class is designed to generate payloads at runtime corresponding to POJOs provided by user for
+ * the respective apis
+ */
 public class DynamicPayloads {
 
     public static AirlinePojo getDynamicPayload() {

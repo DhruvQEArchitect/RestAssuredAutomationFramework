@@ -3,6 +3,11 @@ package pojo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 
+/**
+ * Mapper class provides mechanism to generate the response payload for
+ * assertion purpose
+ */
+
 public class Mapper {
 
     static ObjectMapper objectMapper;
