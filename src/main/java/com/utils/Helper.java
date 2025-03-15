@@ -1,5 +1,7 @@
 package com.utils;
 
+import com.reporting.Logging;
+
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -25,7 +27,7 @@ public class Helper {
         try {
             properties.load(new FileInputStream(path + "/src/test/resources/Test.properties"));
         } catch (Exception ex) {
-            ex.printStackTrace();
+            Logging.logInfo("Exception caught: ", ex.getMessage());
         }
         return properties.getProperty(key);
     }
@@ -35,7 +37,7 @@ public class Helper {
         try {
             properties.load(new FileInputStream(path + "/src/test/resources/Test.properties"));
         } catch (Exception ex) {
-            ex.printStackTrace();
+            Logging.logInfo("Exception caught: ", ex.getMessage());
         }
         return properties.getProperty("env");
     }
