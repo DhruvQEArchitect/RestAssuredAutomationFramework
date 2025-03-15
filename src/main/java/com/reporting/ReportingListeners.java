@@ -2,7 +2,7 @@ package com.reporting;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.utils.FileZipper;
+import com.utils.ResultsZipper;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -31,6 +31,7 @@ public class ReportingListeners implements ITestListener {
     @Override
     public void onFinish(ITestContext context) {
         extentReports.flush();
+        ResultsZipper.zipFiles();
     }
 
     @Override
