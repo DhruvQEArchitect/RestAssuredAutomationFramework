@@ -4,6 +4,10 @@ package com.utils;
 import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 
+/**
+ * This class utilises Faker api to generate fake data needed for the apis
+ * and more method could be added based upon usage
+ */
 public class FakeDataBuilder {
 
     static Faker faker = new Faker();

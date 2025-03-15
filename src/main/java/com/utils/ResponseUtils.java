@@ -10,6 +10,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.SpecificationQuerier;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * ResponseUtils class contains methods to perform action on the apis, based upon
+ * the requirement and usage various methods or types could be implemented
+ */
 public class ResponseUtils {
 
     static Response response;

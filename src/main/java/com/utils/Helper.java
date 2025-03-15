@@ -3,6 +3,10 @@ package com.utils;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+/**
+ * This helper class provide ways to get environment, load any properties or environment needed
+ * for test execution and all the properties should be provided in the Test.properties file
+ */
 public class Helper {
 
     static String path = System.getProperty("user.dir");

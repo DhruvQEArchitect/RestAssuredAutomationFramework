@@ -8,6 +8,9 @@ import org.testng.ITestResult;
 
 import java.util.Arrays;
 
+/**
+ * This class serves as a listening agent for all the tests executed, by testng tests
+ */
 public class ReportingListeners implements ITestListener {
 
     private static ExtentReports extentReports;
